@@ -1,7 +1,6 @@
 import { siteInfo } from "@/constants";
 import Image from "next/image";
-import Statistics from "@/components/Statistics";
-import Testimonials from "@/components/Testimonials";
+
 import {
   MailIcon,
   PhoneIcon,
@@ -25,13 +24,13 @@ export default function DusanRakicPage() {
   return (
     <main className="min-h-screen">
       <div className="bg-primary py-[70px] md:py-[61px]"></div>
-      <div className="container mx-auto px-2 max-w-6xl">
+      <div className="container mx-auto px-2 max-w-6xl text-foreground">
         {/* Hero sekcija */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <div className="text-center mb-10 md:mb-20">
+          <h1 className="text-3xl mt-8 md:text-6xl font-bold mb-6">
             Dušan Rakić - Raka
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-2xl text-foreground max-w-3xl mx-auto">
             UEFA licencirani kondicijski trener FK Crvena zvezda, autor i
             edukator u oblasti modernog fudbala
           </p>
@@ -42,7 +41,7 @@ export default function DusanRakicPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">O treneru</h2>
-              <div className="space-y-4 text-lg text-muted-foreground">
+              <div className="space-y-4 text-lg text-foreground">
                 <p>
                   Dušan Rakić, poznatiji kao{" "}
                   <strong className="text-foreground">Raka</strong>, je UEFA
