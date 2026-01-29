@@ -1,7 +1,6 @@
 import ButtonToTop from "@/components/ButtonToTop";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import TopComponent from "@/components/TopComponent";
 import { Toaster } from "@/components/ui/sonner";
 import { CartProvider } from "@/lib/cart-context";
 

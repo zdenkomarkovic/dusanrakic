@@ -12,7 +12,6 @@ import {
   TrophyIcon,
   HeartIcon,
   ShieldCheckIcon,
-  CertificateIcon,
   BriefcaseIcon,
 } from "lucide-react";
 
@@ -33,8 +32,8 @@ export default function DusanRakicPage() {
             Dušan Rakić - Raka
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            UEFA licencirani kondicijski trener FK Crvena zvezda, autor i edukator u oblasti
-            modernog fudbala
+            UEFA licencirani kondicijski trener FK Crvena zvezda, autor i
+            edukator u oblasti modernog fudbala
           </p>
         </div>
 
@@ -46,8 +45,8 @@ export default function DusanRakicPage() {
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
                   Dušan Rakić, poznatiji kao{" "}
-                  <strong className="text-foreground">Raka</strong>, je
-                  UEFA licencirani kondicijski trener sa bogatim iskustvom u radu sa
+                  <strong className="text-foreground">Raka</strong>, je UEFA
+                  licencirani kondicijski trener sa bogatim iskustvom u radu sa
                   vrhunskim sportistima. Trenutno obavlja funkciju kondicijskog
                   trenera u FK Crvena zvezda, najuspešnijem fudbalskom klubu u
                   Srbiji.
@@ -92,7 +91,8 @@ export default function DusanRakicPage() {
                   <h3 className="text-xl font-bold">UEFA Licenca</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Sertifikovani UEFA trener sa završenim stručnim edukacijama koje ga kvalifikuju za rad na profesionalnom nivou
+                  Sertifikovani UEFA trener sa završenim stručnim edukacijama
+                  koje ga kvalifikuju za rad na profesionalnom nivou
                 </p>
               </div>
 
@@ -104,7 +104,8 @@ export default function DusanRakicPage() {
                   <h3 className="text-xl font-bold">Sportska nauka</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Kontinuirano obrazovanje u oblasti sportske nauke, kondicijske pripreme i metodike treninga
+                  Kontinuirano obrazovanje u oblasti sportske nauke, kondicijske
+                  pripreme i metodike treninga
                 </p>
               </div>
 
@@ -116,7 +117,8 @@ export default function DusanRakicPage() {
                   <h3 className="text-xl font-bold">Profesionalno iskustvo</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Višegodišnje iskustvo rada sa profesionalnim timovima i vrhunskim sportistima
+                  Višegodišnje iskustvo rada sa profesionalnim timovima i
+                  vrhunskim sportistima
                 </p>
               </div>
 
@@ -128,7 +130,8 @@ export default function DusanRakicPage() {
                   <h3 className="text-xl font-bold">Prevencija povreda</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Specijalizovana znanja iz oblasti prevencije sportskih povreda i funkcionalnog treninga
+                  Specijalizovana znanja iz oblasti prevencije sportskih povreda
+                  i funkcionalnog treninga
                 </p>
               </div>
 
@@ -140,7 +143,8 @@ export default function DusanRakicPage() {
                   <h3 className="text-xl font-bold">Vrhunski fudbal</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Rad u profesionalnom okruženju FK Crvena zvezda sa igračima koji nastupaju na najvišem nivou
+                  Rad u profesionalnom okruženju FK Crvena zvezda sa igračima
+                  koji nastupaju na najvišem nivou
                 </p>
               </div>
 
@@ -152,7 +156,8 @@ export default function DusanRakicPage() {
                   <h3 className="text-xl font-bold">Autor publikacija</h3>
                 </div>
                 <p className="text-muted-foreground">
-                  Autor stručnih knjiga i edukativnih materijala koji se koriste u trenerskoj edukaciji
+                  Autor stručnih knjiga i edukativnih materijala koji se koriste
+                  u trenerskoj edukaciji
                 </p>
               </div>
             </div>

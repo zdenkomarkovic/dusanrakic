@@ -50,13 +50,17 @@ export default function BookStats({
   if (stats.length === 0) return null;
 
   const isLarge = size === "large";
-  const iconSize = isLarge ? 40 : 24;
 
   return (
-    <div className={`flex items-center justify-center ${isLarge ? "gap-12 py-4" : "gap-6 py-3"}`}>
+    <div
+      className={`flex items-center justify-center ${isLarge ? "gap-12 py-4" : "gap-6 py-3"}`}
+    >
       {stats.map((stat, index) => {
         return (
-          <div key={index} className={`flex flex-col items-center ${isLarge ? "gap-2" : "gap-1"}`}>
+          <div
+            key={index}
+            className={`flex flex-col items-center ${isLarge ? "gap-2" : "gap-1"}`}
+          >
             <div className={`relative ${isLarge ? "w-10 h-10" : "w-6 h-6"}`}>
               <Image
                 src={stat.iconSrc}
@@ -65,10 +69,14 @@ export default function BookStats({
                 className="object-contain"
               />
             </div>
-            <span className={`${isLarge ? "text-xs" : "text-[10px]"} text-muted-foreground uppercase tracking-wider`}>
+            <span
+              className={`${isLarge ? "text-xs" : "text-[10px]"} text-muted-foreground uppercase tracking-wider`}
+            >
               {stat.label}
             </span>
-            <span className={`${isLarge ? "text-xl" : "text-sm"} font-semibold text-foreground`}>
+            <span
+              className={`${isLarge ? "text-xl" : "text-sm"} font-semibold text-foreground`}
+            >
               {stat.value}
             </span>
           </div>

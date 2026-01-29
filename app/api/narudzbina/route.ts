@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import Mailjet from "node-mailjet";
 
+interface OrderItem {
+  naslov: string;
+  autor: string;
+  kolicina: number;
+  cena: number;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -14,7 +21,7 @@ export async function POST(req: NextRequest) {
 
     const stavkeHTML = stavke
       .map(
-        (stavka: any) => `
+        (stavka: OrderItem) => `
         <tr>
           <td style="padding: 12px; border-bottom: 1px solid #eee;">${stavka.naslov}</td>
           <td style="padding: 12px; border-bottom: 1px solid #eee;">${stavka.autor}</td>
@@ -131,7 +138,7 @@ export async function POST(req: NextRequest) {
                   <tbody>
                     ${stavke
                       .map(
-                        (stavka: any) => `
+                        (stavka: OrderItem) => `
                       <tr>
                         <td style="padding: 12px; border-bottom: 1px solid #eee;">${stavka.naslov}<br><small style="color: #666;">${stavka.autor}</small></td>
                         <td style="padding: 12px; border-bottom: 1px solid #eee; text-align: center;">${stavka.kolicina}</td>

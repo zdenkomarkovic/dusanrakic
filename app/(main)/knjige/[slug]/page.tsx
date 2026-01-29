@@ -28,25 +28,25 @@ const portableTextComponents = {
     image: PortableTextImage,
   },
   block: {
-    normal: ({ children }: any) => (
+    normal: ({ children }: { children?: React.ReactNode }) => (
       <p className="mb-4 leading-relaxed text-justify">{children}</p>
     ),
-    h2: ({ children }: any) => (
+    h2: ({ children }: { children?: React.ReactNode }) => (
       <h2 className="text-2xl font-bold mt-8 mb-4 clear-both">{children}</h2>
     ),
-    h3: ({ children }: any) => (
+    h3: ({ children }: { children?: React.ReactNode }) => (
       <h3 className="text-xl font-bold mt-6 mb-3 clear-both">{children}</h3>
     ),
-    h4: ({ children }: any) => (
+    h4: ({ children }: { children?: React.ReactNode }) => (
       <h4 className="text-lg font-semibold mt-4 mb-2 clear-both">{children}</h4>
     ),
   },
   marks: {
-    strong: ({ children }: any) => (
+    strong: ({ children }: { children?: React.ReactNode }) => (
       <strong className="font-bold">{children}</strong>
     ),
-    em: ({ children }: any) => <em className="italic">{children}</em>,
-    link: ({ children, value }: any) => (
+    em: ({ children }: { children?: React.ReactNode }) => <em className="italic">{children}</em>,
+    link: ({ children, value }: { children?: React.ReactNode; value: { href: string } }) => (
       <a
         href={value.href}
         target="_blank"
@@ -58,10 +58,10 @@ const portableTextComponents = {
     ),
   },
   list: {
-    bullet: ({ children }: any) => (
+    bullet: ({ children }: { children?: React.ReactNode }) => (
       <ul className="list-disc ml-6 mb-4 space-y-2">{children}</ul>
     ),
-    number: ({ children }: any) => (
+    number: ({ children }: { children?: React.ReactNode }) => (
       <ol className="list-decimal ml-6 mb-4 space-y-2">{children}</ol>
     ),
   },

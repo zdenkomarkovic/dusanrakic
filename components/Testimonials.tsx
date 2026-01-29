@@ -126,7 +126,7 @@ export default function Testimonials() {
                   </div>
 
                   <p className="text-lg text-foreground mb-6 leading-relaxed min-h-[180px]">
-                    "{testimonial.text}"
+                    &ldquo;{testimonial.text}&rdquo;
                   </p>
 
                   <div>
