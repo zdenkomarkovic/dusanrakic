@@ -46,9 +46,9 @@ const portableTextComponents = {
       <strong className="font-bold">{children}</strong>
     ),
     em: ({ children }: { children?: React.ReactNode }) => <em className="italic">{children}</em>,
-    link: ({ children, value }: { children?: React.ReactNode; value: { href: string } }) => (
+    link: ({ children, value }: { children?: React.ReactNode; value?: { href: string } }) => (
       <a
-        href={value.href}
+        href={value?.href}
         target="_blank"
         rel="noopener noreferrer"
         className="text-primary underline hover:text-primary/80"
