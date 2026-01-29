@@ -26,7 +26,7 @@ export default function DusanRakicPage() {
       <div className="bg-primary py-[70px] md:py-[61px]"></div>
       <div className="container mx-auto px-2 max-w-6xl text-foreground">
         {/* Hero sekcija */}
-        <div className="text-center mb-10 md:mb-20">
+        <div className="text-center mb-8 md:mb-20">
           <h1 className="text-3xl mt-8 md:text-6xl font-bold mb-6">
             Dušan Rakić - Raka
           </h1>
@@ -37,7 +37,7 @@ export default function DusanRakicPage() {
         </div>
 
         {/* O treneru - Biografija */}
-        <div className="mb-32">
+        <div className="mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">O treneru</h2>
@@ -76,7 +76,7 @@ export default function DusanRakicPage() {
         </div>
 
         {/* Kvalifikacije i licence */}
-        <div className="mb-32">
+        <div className="mb-20">
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 md:p-12">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               Kvalifikacije i licence
@@ -164,7 +164,7 @@ export default function DusanRakicPage() {
         </div>
 
         {/* Trenerska filozofija */}
-        <div className="mb-32">
+        <div className="mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
@@ -207,7 +207,7 @@ export default function DusanRakicPage() {
         </div>
 
         {/* Karakteristike rada */}
-        <div className="mb-32">
+        <div className="mb-20 md:mb-32">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
             Ključne karakteristike
           </h2>
@@ -259,7 +259,7 @@ export default function DusanRakicPage() {
         </div>
 
         {/* Autor i edukator */}
-        <div className="mb-32">
+        <div className="mb-20 md:mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -306,7 +306,7 @@ export default function DusanRakicPage() {
         </div>
 
         {/* Rad sa Crvenom zvezdom */}
-        <div className="mb-32">
+        <div className="mb-20 md:mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image

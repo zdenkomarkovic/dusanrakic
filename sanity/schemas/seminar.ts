@@ -137,12 +137,13 @@ export default {
     },
     prepare(selection: any) {
       const { title, date, status } = selection;
-      const statusLabel = {
+      const statusLabels: Record<string, string> = {
         active: '✅ Aktivan',
         full: '🔴 Popunjen',
         finished: '✔️ Završen',
         cancelled: '❌ Otkazan',
-      }[status] || status;
+      };
+      const statusLabel = statusLabels[status as string] || status;
 
       return {
         title: title,
