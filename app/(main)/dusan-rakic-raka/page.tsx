@@ -413,10 +413,6 @@ export default function DusanRakicPage() {
         </div>
       </div>
 
-      {/* Statistics i Testimonials */}
-      <Statistics />
-      <Testimonials />
-
       <div className="container mx-auto px-2 max-w-6xl">
         {/* Kontakt sekcija */}
         <div className="bg-card rounded-xl p-8 md:p-12 shadow-lg">

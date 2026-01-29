@@ -1,4 +1,10 @@
-export const navList = [
+interface NavItem {
+  title: string;
+  link: string;
+  list?: { title: string; link: string }[];
+}
+
+export const navList: NavItem[] = [
   {
     title: "Početna",
     link: "/",
