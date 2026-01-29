@@ -14,7 +14,9 @@
       "Bash(npm view:*)",
       "Bash(timeout /t 5 /nobreak)",
       "Bash(ping:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

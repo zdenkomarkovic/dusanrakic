@@ -13,6 +13,9 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { ime, prezime, email, telefon, napomena, stavke, ukupno } = body;
 
+    // Generiši jedinstveni Order ID za svaki email
+    const orderId = `ORD-${Date.now()}-${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
+
     // Inicijalizuj Mailjet klijent
     const mailjet = Mailjet.apiConnect(
       process.env.MAILJET_API_KEY!,
@@ -41,12 +44,12 @@ export async function POST(req: NextRequest) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #ff5722; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+            .header { background: #1f6bb7; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
             .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
             .info-box { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; }
             table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-            th { background: #ff5722; color: white; padding: 12px; text-align: left; }
-            .total { font-size: 24px; color: #ff5722; font-weight: bold; text-align: right; margin-top: 20px; }
+            th { background: #1f6bb7; color: white; padding: 12px; text-align: left; }
+            .total { font-size: 24px; color: #1f6bb7; font-weight: bold; text-align: right; margin-top: 20px; }
           </style>
         </head>
         <body>
@@ -54,10 +57,11 @@ export async function POST(req: NextRequest) {
             <div class="header">
               <h1 style="margin: 0;">Nova narudžbina!</h1>
               <p style="margin: 10px 0 0 0;">Dušan Rakić - Raka Gegenpresing</p>
+              <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Broj narudžbine: ${orderId}</p>
             </div>
             <div class="content">
               <div class="info-box">
-                <h2 style="color: #ff5722; margin-top: 0;">Podaci o kupcu</h2>
+                <h2 style="color: #1f6bb7; margin-top: 0;">Podaci o kupcu</h2>
                 <p><strong>Ime i prezime:</strong> ${ime} ${prezime}</p>
                 <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
                 <p><strong>Telefon:</strong> <a href="tel:${telefon}">${telefon}</a></p>
@@ -65,7 +69,7 @@ export async function POST(req: NextRequest) {
               </div>
 
               <div class="info-box">
-                <h2 style="color: #ff5722; margin-top: 0;">Naručene knjige</h2>
+                <h2 style="color: #1f6bb7; margin-top: 0;">Naručene knjige</h2>
                 <table>
                   <thead>
                     <tr>
@@ -107,11 +111,11 @@ export async function POST(req: NextRequest) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #ff5722; color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+            .header { background: #1f6bb7; color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
             .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
             .info-box { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; }
             table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-            th { background: #ff5722; color: white; padding: 12px; text-align: left; }
+            th { background: #1f6bb7; color: white; padding: 12px; text-align: left; }
           </style>
         </head>
         <body>
@@ -119,6 +123,7 @@ export async function POST(req: NextRequest) {
             <div class="header">
               <h1 style="margin: 0;">Hvala na narudžbini!</h1>
               <p style="margin: 10px 0 0 0; font-size: 18px;">Vaša narudžbina je uspešno primljena</p>
+              <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Broj narudžbine: ${orderId}</p>
             </div>
             <div class="content">
               <p>Poštovani/a ${ime},</p>
@@ -126,7 +131,7 @@ export async function POST(req: NextRequest) {
               <p>Hvala što ste izabrali naše knjige! Vaša narudžbina je uspešno primljena i uskoro ćemo vas kontaktirati.</p>
 
               <div class="info-box">
-                <h2 style="color: #ff5722; margin-top: 0;">Vaša narudžbina</h2>
+                <h2 style="color: #1f6bb7; margin-top: 0;">Vaša narudžbina</h2>
                 <table>
                   <thead>
                     <tr>
@@ -149,7 +154,7 @@ export async function POST(req: NextRequest) {
                       .join("")}
                   </tbody>
                 </table>
-                <p style="text-align: right; font-size: 20px; color: #ff5722; font-weight: bold; margin: 0;">
+                <p style="text-align: right; font-size: 20px; color: #1f6bb7; font-weight: bold; margin: 0;">
                   Ukupno: ${ukupno.toLocaleString("sr-RS")} RSD
                 </p>
               </div>
@@ -190,7 +195,7 @@ export async function POST(req: NextRequest) {
               Name: "Admin",
             },
           ],
-          Subject: `Nova narudžbina od ${ime} ${prezime}`,
+          Subject: `Nova narudžbina ${orderId} - ${ime} ${prezime}`,
           HTMLPart: htmlEmail,
         },
       ],
@@ -210,7 +215,7 @@ export async function POST(req: NextRequest) {
               Name: `${ime} ${prezime}`,
             },
           ],
-          Subject: "Potvrda narudžbine - Dušan Rakić Knjige",
+          Subject: `Potvrda narudžbine ${orderId} - Dušan Rakić Knjige`,
           HTMLPart: confirmationEmail,
         },
       ],

@@ -16,11 +16,11 @@ export default function UspesnaNarudzbinaPage() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Hvala na narudžbini!
+            Uspešno ste naručili!
           </h1>
 
           <p className="text-xl text-muted-foreground mb-8">
-            Vaša narudžbina je uspešno primljena
+            Javiće mo vam se u najkraćem roku
           </p>
 
           <div className="bg-muted/30 rounded-xl p-6 mb-8 text-left">

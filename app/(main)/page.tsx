@@ -3,6 +3,7 @@ import FeaturedBooks from "@/components/FeaturedBooks";
 import FeaturedSeminars from "@/components/FeaturedSeminars";
 import Statistics from "@/components/Statistics";
 import Testimonials from "@/components/Testimonials";
+import FeatureSection from "@/components/FeatureSection";
 import { client } from "@/sanity/config";
 import { Book } from "@/types/book";
 import { Seminar } from "@/types/seminar";
@@ -89,6 +90,27 @@ export default async function Home() {
       <FeaturedSeminars seminars={featuredSeminars} />
       <Statistics />
       <Testimonials />
+      <FeatureSection />
+
+      {/* Video sekcija */}
+      <section className=" px-4 py-5">
+        <div className="container mx-auto max-w-6xl">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <video
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto"
+              preload="metadata"
+            >
+              <source src="/images/VID-20260123-WA0037.mp4" type="video/mp4" />
+              Vaš browser ne podržava video playback.
+            </video>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

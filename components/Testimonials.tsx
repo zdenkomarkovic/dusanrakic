@@ -83,6 +83,18 @@ export default function Testimonials() {
     }
   };
 
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: { offset: { x: number }; velocity: { x: number } }
+  ) => {
+    const swipeThreshold = 50;
+    if (info.offset.x > swipeThreshold) {
+      prevSlide();
+    } else if (info.offset.x < -swipeThreshold) {
+      nextSlide();
+    }
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-7xl">
@@ -96,8 +108,12 @@ export default function Testimonials() {
         </div>
 
         <div className="relative overflow-hidden">
-          <div
-            className={`flex ${
+          <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            className={`flex cursor-grab active:cursor-grabbing ${
               isTransitioning ? "transition-transform duration-500 ease-out" : ""
             }`}
             style={{
@@ -137,10 +153,10 @@ export default function Testimonials() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Navigation buttons */}
-          <div className="flex justify-center gap-4 mt-8">
+          {/* Navigation buttons - Hidden on mobile */}
+          <div className="hidden md:flex justify-center gap-4 mt-8">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -175,6 +191,24 @@ export default function Testimonials() {
             >
               <ChevronRight className="w-6 h-6" />
             </motion.button>
+          </div>
+
+          {/* Mobile indicators only */}
+          <div className="flex md:hidden justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setIsTransitioning(true);
+                  setCurrentIndex(testimonials.length + index);
+                }}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  (currentIndex % testimonials.length) === index
+                    ? "bg-primary w-8"
+                    : "bg-primary/30"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
