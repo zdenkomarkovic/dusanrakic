@@ -512,9 +512,6 @@ export default function DusanRakicPage() {
 
         {/* Galerija */}
         <div className="mt-20 mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Galerija
-          </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
               <div

@@ -43,7 +43,7 @@ export default async function Home() {
       <section className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Stručna literatura za trenere
+            Stručna literatura
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             Kroz naše knjige, delimo praktična znanja i iskustva koja će vam
@@ -93,7 +93,7 @@ export default async function Home() {
       <FeatureSection />
 
       {/* Video sekcija */}
-      <section className=" px-4 py-5">
+      <section className=" px-4 py-20">
         <div className="container mx-auto max-w-6xl">
           <div className="rounded-xl overflow-hidden shadow-2xl">
             <video

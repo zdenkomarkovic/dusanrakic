@@ -100,10 +100,10 @@ export default function Testimonials() {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Šta kažu treneri
+            Šta su rekli o Raki
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Iskustva trenera koji su koristili naše knjige i seminare
+            Iskustva onih koji su koristili naše knjige i seminare
           </p>
         </div>
 
@@ -114,7 +114,9 @@ export default function Testimonials() {
             dragElastic={0.2}
             onDragEnd={handleDragEnd}
             className={`flex cursor-grab active:cursor-grabbing ${
-              isTransitioning ? "transition-transform duration-500 ease-out" : ""
+              isTransitioning
+                ? "transition-transform duration-500 ease-out"
+                : ""
             }`}
             style={{
               transform: `translateX(-${currentIndex * (100 / 3)}%)`,
@@ -175,7 +177,7 @@ export default function Testimonials() {
                     setCurrentIndex(testimonials.length + index);
                   }}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    (currentIndex % testimonials.length) === index
+                    currentIndex % testimonials.length === index
                       ? "bg-primary w-8"
                       : "bg-primary/30 hover:bg-primary/50"
                   }`}
@@ -203,7 +205,7 @@ export default function Testimonials() {
                   setCurrentIndex(testimonials.length + index);
                 }}
                 className={`w-3 h-3 rounded-full transition-all ${
-                  (currentIndex % testimonials.length) === index
+                  currentIndex % testimonials.length === index
                     ? "bg-primary w-8"
                     : "bg-primary/30"
                 }`}
