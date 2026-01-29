@@ -23,13 +23,19 @@ import {
   AccordionContent,
 } from "./ui/accordion";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
+import CartIcon from "./CartIcon";
+import TopComponent from "./TopComponent";
 
 const mobTitleStyles = "text-lg py-2";
 
-const MobileMenu = () => (
+const MobileMenu = ({ scrolled }: { scrolled: boolean }) => (
   <Sheet>
     <SheetTrigger className="lg:hidden">
-      <MenuIcon className="text-primary cursor-pointer" />
+      <motion.div
+        animate={{ color: scrolled ? "hsl(var(--foreground))" : "#ffffff" }}
+      >
+        <MenuIcon className="cursor-pointer" />
+      </motion.div>
     </SheetTrigger>
     <SheetContent>
       <SheetHeader>
@@ -88,7 +94,7 @@ const MobileMenu = () => (
   </Sheet>
 );
 
-const DesktopNav = () => (
+const DesktopNav = ({ scrolled }: { scrolled: boolean }) => (
   <ul className="hidden gap-8 lg:flex  text-xl">
     {navList.map((item, index) => {
       if (item.list)
@@ -96,6 +102,9 @@ const DesktopNav = () => (
           <HoverCard key={index} openDelay={0} closeDelay={50}>
             <HoverCardTrigger>
               <motion.div
+                animate={{
+                  color: scrolled ? "hsl(var(--foreground))" : "#ffffff",
+                }}
                 whileHover={{ color: "hsl(var(--primary))", scale: 1.1 }}
                 className="flex gap-1 transition-colors"
               >
@@ -123,8 +132,9 @@ const DesktopNav = () => (
       return (
         <Link key={index} href={item.link}>
           <motion.li
+            animate={{ color: scrolled ? "hsl(var(--foreground))" : "#ffffff" }}
             className="transition-colors underline-animation"
-            whileHover={{ color: "hsl(var(--primary))", scale: 1.1 }}
+            whileHover={{ scale: 1.1 }}
           >
             {item.title}
           </motion.li>
@@ -151,38 +161,40 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`flex justify-center ${
-        scrolled
-          ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-md"
-          : "bg-transparent"
-      }  fixed top-0 left-0 right-0 z-[10] transition-colors`}
-    >
-      <nav className="flex items-center justify-between px-8 py-4 max-w-[80rem] w-full text-primary font-bold">
-        <Link href="/" className="">
-          <Image
-            src={Logo}
-            alt="dm rustic 24"
-            width={50}
-            height={50}
-            className="rounded-full"
-          />
-        </Link>
-        <DesktopNav />
-        <Link href="tel:+3816">
-          <motion.button
-            whileHover={{
-              color: "hsl(var(--foreground))",
-              backgroundColor: "hsl(var(--primary))",
-            }}
-            className=" items-center justify-center rounded-full text-primary border-primary border-2 text-sm md:text-lg py-1 px-2 md:py-2 md:px-4 transition-colors flex"
-          >
-            <PhoneIcon />
-            <p className="">+38160 000 000</p>
-          </motion.button>
-        </Link>
-        <MobileMenu />
-      </nav>
+    <header className="fixed top-0 left-0 right-0 z-[20]">
+      <TopComponent />
+      <div
+        className={`flex justify-center ${
+          scrolled
+            ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-md"
+            : "bg-transparent"
+        }    transition-colors`}
+      >
+        <nav
+          className={`flex items-center justify-between px-8 py-3 max-w-[80rem] w-full font-bold transition-colors ${
+            scrolled ? "text-foreground" : "text-white"
+          }`}
+        >
+          <Link href="/" className=" flex gap-3 items-center">
+            <Image
+              src={Logo}
+              alt="dm rustic 24"
+              width={60}
+              height={60}
+              className="rounded-full"
+            />
+            <div className="text-center">
+              <p>Trenerski</p>
+              <p>centar</p>
+            </div>
+          </Link>
+          <DesktopNav scrolled={scrolled} />
+          <div className="flex items-center gap-4">
+            <CartIcon scrolled={scrolled} />
+          </div>
+          <MobileMenu scrolled={scrolled} />
+        </nav>
+      </div>{" "}
     </header>
   );
 }
