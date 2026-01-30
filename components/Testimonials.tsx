@@ -57,6 +57,7 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(testimonials.length);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const infiniteTestimonials = [
     ...testimonials,
@@ -97,10 +98,15 @@ export default function Testimonials() {
     }
   };
 
+  const handleDragStart = () => {
+    setIsDragging(true);
+  };
+
   const handleDragEnd = (
     event: MouseEvent | TouchEvent | PointerEvent,
     info: { offset: { x: number }; velocity: { x: number } }
   ) => {
+    setIsDragging(false);
     const swipeThreshold = 50;
     if (info.offset.x > swipeThreshold) {
       prevSlide();
@@ -126,9 +132,10 @@ export default function Testimonials() {
             drag="x"
             dragElastic={0.2}
             dragMomentum={false}
+            onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
             className={`flex select-none ${
-              isTransitioning
+              isTransitioning && !isDragging
                 ? "transition-transform duration-500 ease-out"
                 : ""
             }`}
