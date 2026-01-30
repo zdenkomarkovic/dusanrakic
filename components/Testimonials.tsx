@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -56,12 +56,26 @@ const testimonials: Testimonial[] = [
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(testimonials.length);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const infiniteTestimonials = [
     ...testimonials,
     ...testimonials,
     ...testimonials,
   ];
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const slidePercentage = isMobile ? 100 : 100 / 3;
 
   const nextSlide = () => {
     setIsTransitioning(true);
@@ -119,7 +133,7 @@ export default function Testimonials() {
                 : ""
             }`}
             style={{
-              transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+              transform: `translateX(-${currentIndex * slidePercentage}%)`,
             }}
             onTransitionEnd={handleTransitionEnd}
           >
