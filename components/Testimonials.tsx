@@ -121,19 +121,20 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden touch-pan-y">
           <motion.div
             drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
+            dragMomentum={false}
             onDragEnd={handleDragEnd}
-            className={`flex cursor-grab active:cursor-grabbing ${
+            className={`flex select-none ${
               isTransitioning
                 ? "transition-transform duration-500 ease-out"
                 : ""
             }`}
             style={{
               transform: `translateX(-${currentIndex * slidePercentage}%)`,
+              touchAction: "pan-y",
             }}
             onTransitionEnd={handleTransitionEnd}
           >

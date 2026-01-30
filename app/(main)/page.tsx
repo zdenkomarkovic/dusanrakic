@@ -89,7 +89,7 @@ export default async function Home() {
       </section>
       <FeaturedSeminars seminars={featuredSeminars} />
       <Statistics />
-      <Testimonials />
+
       <FeatureSection />
 
       {/* Video sekcija */}
@@ -111,6 +111,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <Testimonials />
     </main>
   );
 }
